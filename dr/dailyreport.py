@@ -2,7 +2,7 @@ from flask import session, redirect, url_for, escape, request, render_template
 from dr import app
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if 'username' in session:
         return 'Logged in as %s <p><input type=submit value=Logout>' % escape(session['username'])

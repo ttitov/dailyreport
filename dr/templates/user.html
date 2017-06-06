@@ -8,17 +8,20 @@
 <body>
 
 <form method="post">
-    <div>Add Today Tasks and Bugs: </div>
-    <input id="currenttime" type=date name=date>
-    <input id="description" type=text name=task_description>
-    <input id="hour" type=text name=task_time>
-    <input type=button value=Add>
-    <br>
-    <div>Tomorrow</div>
-    <input id="currenttime" type=date name=date>
-    <input id="description" type=text name=task_description>
-    <input type=button value=Add>
+    <div>
+        <div> Add Today Tasks and Bugs: </div>
 
+        <input id="currenttime" type=date name=date>
+        <input id="description" type=text name=task_description>
+        <input id="hour" type=text name=task_time>
+        <input type=button value=Add>
+
+        <div>Tomorrow</div>
+
+        <input id="tomorrowtime" type=date name=date>
+        <input id="tm_description" type=text name=task_description>
+        <input type=button value=Add>
+    </div>
 </form>
 
 </body>
