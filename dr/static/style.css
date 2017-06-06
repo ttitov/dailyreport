@@ -3,9 +3,18 @@ H2 {
     font-size: 200%;
     font-family: Arial, Verdana, sans-serif;
     text-align: center;
+
 }
 P {
     padding-left: 20px;
 }
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+#description {
 
+}
