@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User View</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<form method="post">
+    <div>Add Today Tasks and Bugs: </div>
+    <input id="currenttime" type=date name=date>
+    <input id="description" type=text name=task_description>
+    <input id="hour" type=text name=task_time>
+    <input type=button value=Add>
+    <br>
+    <div>Tomorrow</div>
+    <input id="currenttime" type=date name=date>
+    <input id="description" type=text name=task_description>
+    <input type=button value=Add>
+
+</form>
+
+</body>
+</html>
