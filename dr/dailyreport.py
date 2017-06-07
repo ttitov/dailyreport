@@ -17,13 +17,9 @@ def load_user(id):
 def get_current_user():
     g.user = current_user
 
-
-@app.route('/index', methods=['GET', 'POST'])
+@app.route ('/')
+@app.route('/index')
 def index():
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        session['password'] = request.form['password']
-        return redirect(url_for('login'))
     return render_template('index.html')
 
 
@@ -66,7 +62,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return render_template('index.html')
+    return redirect(url_for('index'))
 
 
 

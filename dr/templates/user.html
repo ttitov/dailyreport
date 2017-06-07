@@ -8,25 +8,31 @@
 <body>
 
 <form method="post">
-    <div>
-        <div> Add Today Tasks and Bugs: </div>
+    <div class="content-user">
+        <div class = "title-head">
+            Hi, {{username}}
+            Add Today Tasks and Bugs:
+        </div>
 
         <input id="currenttime" type=date name=date>
         <input id="description" type=text name=task_description>
         <input id="hour" type=text name=task_time>
         <input type=button value=Add>
 
-        <div>Tomorrow</div>
+        <div class = "title-tomorrow">Tomorrow</div>
 
         <input id="tomorrowtime" type=date name=date>
         <input id="tm_description" type=text name=task_description>
         <input type=button value=Add>
+
+        <div class="logout">
+            <a  href="{{ url_for('logout') }}"> Logout </a>
+
+        </div>
+
+
     </div>
 
-    <div>
-        <a  href="{{ url_for('logout') }}"> Logout </a>
-
-    </div>
 
 </form>
 
