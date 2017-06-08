@@ -20,7 +20,8 @@ def get_current_user():
 @app.route ('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    form = LoginForm(request.form)
+    return render_template('index.html', form=form)
 
 
 @app.route('/login',  methods=['GET', 'POST'])
@@ -41,7 +42,7 @@ def login():
             flash(
                 'Invalid username or password. Please try again.',
                 'danger')
-            return render_template('user.html', form=form)
+            return render_template('index.html', form=form)
 
         user = User.query.filter_by(username=username).first()
 
@@ -51,11 +52,11 @@ def login():
             db.session.commit()
         login_user(user)
         flash('You have successfully logged in.', 'success')
-        return redirect(url_for('index'))
+        return render_template('user.html')
 
     if form.errors:
         flash(form.errors, 'danger')
-    return render_template('user.html')
+    return redirect(url_for('index'))
 
 
 @app.route('/logout')
@@ -63,6 +64,3 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-
-

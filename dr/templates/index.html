@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Daily Reports</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 
-<body style="margin: 0">
+<body>
     {% if name %}
     <h2>Hello, {{ name }}!</h2>
     {% else %}
@@ -14,7 +15,14 @@
         <h2>
             This is Daily reports page.<br>
             Please logged in.
-            <form action="{{url_for('login')}} " method="post">
+            {% for category, message in get_flashed_messages(with_categories=true) %}
+            <div class="alert alert-{{category}} alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+            <form action="{{url_for('login')}}" method="POST" role="form">
+                {{ form.csrf_token }}
                 <p><input type=text name=username>
                 <p><input type=password name=password>
                 <p><input type=submit value=Login>
@@ -23,6 +31,14 @@
 
         </div>>
     {% endif %}
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='javascripts/bootstrap.min.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+
 </body>
 
 </html>
